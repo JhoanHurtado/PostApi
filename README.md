@@ -1,7 +1,7 @@
 # PostApi
 
 
-EL api esta csontruido en N-capas bajo el patron repositorio e inyeccion de dependencias.
+EL api esta csontruido en N-capas bajo el patron repositorio e inyeccion de dependencias y utilice el framework net core ya que la inyecion de dependencia viene incluida en el por defecto y no requiere de librerias externas para ello.
 
 para la publicacion de las imagenes en AWS S3  necesitaba crear una cuenta en amazon ya que no contaba con una cuenta disponible, pero a pesar de intentarlo no me fue posible,
 ya que me resultaba necesario tener una tarjeta que pudieran validar e intente con dos arjetas diferentes que tenia a disposicion pero ninguna de ellas funciono, al parecer no las pideron validar,
