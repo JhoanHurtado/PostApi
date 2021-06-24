@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PostApi.Data;
@@ -88,6 +89,7 @@ namespace PostApi.WebApi.Controllers
                 try
                 {
                     var filepath = "img/" +postDto.file.FileName;
+                    
                     using(var stream = System.IO.File.Create(filepath))
                     {
                         await postDto.file.CopyToAsync(stream);

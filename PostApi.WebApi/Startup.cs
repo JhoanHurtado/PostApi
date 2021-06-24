@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using PostApi.Data;
@@ -14,6 +15,7 @@ using PostApi.Data.Repositorio;
 using PostApi.Models.Models;
 using PostApi.WebApi.Servicios;
 using System;
+using System.IO;
 using System.Text;
 
 namespace PostApi.WebApi
@@ -96,6 +98,16 @@ namespace PostApi.WebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), "img")),
+                RequestPath = "/img"
+            });
+            app.UseRouting();
 
             app.UseRouting();
 
